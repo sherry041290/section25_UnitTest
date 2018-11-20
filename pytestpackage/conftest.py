@@ -13,3 +13,6 @@ def oneTimeSetUp():
     print("-- Before test 1")
     yield
     print("--After test 1")
+
+def browser():
+
