@@ -9,13 +9,17 @@ def setUp():
 
 
 @pytest.fixture(scope="class")
-def oneTimeSetUp(browser, ostype):
+def oneTimeSetUp(browser, request):
     print("--Running once time setUp")
     if browser == 'firefox':
+        value = 10
         print("Run test on Firefox")
     else:
+        value = 20
         print(" Run test on Chrome")
-    yield
+    if request.cls is not None:
+        request.cls.value = value
+    yield value
     print("--Running once time tearDown")
 
 
