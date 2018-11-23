@@ -3,7 +3,7 @@ from pytestpackage.class_to_test import SomeClassToTest
 
 
 @pytest.mark.usefixtures("setUp", "oneTimeSetUp")
-class TestClassDemo:
+class TestClassDemo2:
 
     @pytest.fixture(autouse=True)
     def classSetup(self, oneTimeSetUp):
@@ -23,5 +23,9 @@ class TestClassDemo:
 """
 #cmd to run the test with pytest html report
 <file direction> py.test -s -v <filename>.py --browser <param> --html=<report_name>.html
+# run test with keyword <class_name>
+<file direction> py.test -s -v -k "keyword" --browser <param> --html=<report_name>.html
+# JUnitxml report
+<file direction> py.test -s -v -k "keyword" --browser <param> --junitxml=<report_name>.xml
 """
 
